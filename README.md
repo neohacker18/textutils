@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with TextUtils App
 ### `npm start`
 
 Runs the app in the development mode.\
