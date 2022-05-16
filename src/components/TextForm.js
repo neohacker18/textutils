@@ -14,6 +14,17 @@ export default function TextForm(props) {
     const handleClearClick=()=>{
       setText('');
     }
+   
+    const handleCopy=()=>{
+      var text=document.getElementById("myBox");
+      text.select();
+      navigator.clipboard.writeText(text.value);
+    }
+
+    const removeSpace=()=>{
+      var newText=text.split(/[ ]+/);
+      setText(newText.join(" "));
+    }
 
     const handleSpeakClick=()=>{
       var msg = new SpeechSynthesisUtterance();
@@ -34,6 +45,8 @@ export default function TextForm(props) {
     <button className="btn btn-dark mx-2" onClick={handleChangeClick}>A/a</button>
     <button className="btn btn-dark mx-2" onClick={handleClearClick}>Clear</button>
     <button className="btn btn-dark mx-2" onClick={handleSpeakClick}>Speak</button>
+    <button className="btn btn-dark mx-2" onClick={handleCopy}>Copy</button>
+    <button className="btn btn-dark mx-2" onClick={removeSpace}>Remove Extra Spaces</button>
       </div>
       <div className="container my-3">
         <h3>Your Text Summary</h3>
