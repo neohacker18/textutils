@@ -4,6 +4,11 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
 import Alert from './components/Alert';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -34,12 +39,16 @@ function App() {
   }
   return (
     <>
+    <BrowserRouter>
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
     <div className="container my-3">
-      <TextForm heading="Enter The Text To Analyse Below" mode={mode} showAlert={showAlert}/>
+    <Routes>
+        <Route exact path="/" element={<TextForm heading="Enter The Text To Analyse Below" mode={mode} showAlert={showAlert}/>}></Route>
+        <Route exact path="/about" element={<About/>}></Route>
+    </Routes>
     </div>
-    {/* <About/> */}
+    </BrowserRouter>
     </>
   );
 }
