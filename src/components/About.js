@@ -54,7 +54,7 @@ export default function About(props) {
             </h2>
             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div className="accordion-body" style={myStyle}>
-                <strong>Textutils gives you a way to analyze your text quickly and efficiently.</strong> Be it word count, character count or other facilities.
+                Textutils gives you a way to analyze your text <strong>quickly</strong> and <strong>efficiently</strong>. Be it word count, character count or other facilities.
             </div>
             </div>
         </div>
