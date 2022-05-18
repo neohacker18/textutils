@@ -10,6 +10,28 @@ import {
   Route,
 } from "react-router-dom";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCFpD42DOJ9dVjSZYW1o30uTeAor-s77bA",
+  authDomain: "textutils-968de.firebaseapp.com",
+  projectId: "textutils-968de",
+  storageBucket: "textutils-968de.appspot.com",
+  messagingSenderId: "558368343221",
+  appId: "1:558368343221:web:27a1bad0b4d1a3b65e2afc",
+  measurementId: "G-R3Z10K8H46"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 function App() {
   const [alert, setAlert] = useState(null);
 
