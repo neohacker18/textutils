@@ -49,7 +49,7 @@ function App() {
     if(mode==='light')
     {
       setMode('dark');
-      document.body.style.backgroundColor='rgb(48 48 48)';
+      document.body.style.backgroundColor='rgb(33 53 72)';
       showAlert("Dark Mode has been enabled","success");
     }
     else
@@ -67,7 +67,7 @@ function App() {
     <div className="container my-3">
     <Routes>
         <Route exact path="/" element={<TextForm heading="Enter The Text To Analyse Below" mode={mode} showAlert={showAlert}/>}></Route>
-        <Route exact path="/about" element={<About/>}></Route>
+        <Route exact path="/about" element={<About mode={mode}/>}></Route>
     </Routes>
     </div>
     </BrowserRouter>

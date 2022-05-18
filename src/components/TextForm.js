@@ -21,6 +21,7 @@ export default function TextForm(props) {
       var text=document.getElementById("myBox");
       text.select();
       navigator.clipboard.writeText(text.value);
+      document.getSelection().removeAllRanges();
       props.showAlert("Copied to Clipboard","success");
     }
     
@@ -44,13 +45,13 @@ export default function TextForm(props) {
       <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
           <h1>{props.heading}</h1>
     <div className="mb-3">
-      <textarea className="form-control" value={text} style={{backgroundColor:props.mode==='light'?'white':'grey',color: props.mode==='dark'?'white':'black'}} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+      <textarea className="form-control" value={text} style={{backgroundColor:props.mode==='light'?'white':'#253340',color: props.mode==='dark'?'white':'black'}} onChange={handleOnChange} id="myBox" rows="8"></textarea>
     </div>
-    <button className="btn btn-dark mx-2" onClick={handleChangeClick}>A/a</button>
-    <button className="btn btn-dark mx-2" onClick={handleClearClick}>Clear</button>
-    <button className="btn btn-dark mx-2" onClick={handleSpeakClick}>Speak</button>
-    <button className="btn btn-dark mx-2" onClick={handleCopy}>Copy</button>
-    <button className="btn btn-dark mx-2" onClick={removeSpace}>Remove Extra Spaces</button>
+    <button disabled={text.length===0} className="btn btn-dark mx-2 my-1" onClick={handleClearClick}>Clear</button>
+    <button disabled={text.length===0} className="btn btn-dark mx-2 my-1" onClick={handleChangeClick}>A/a</button>
+    <button disabled={text.length===0} className="btn btn-dark mx-2 my-1" onClick={handleSpeakClick}>Speak</button>
+    <button disabled={text.length===0} className="btn btn-dark mx-2 my-1" onClick={handleCopy}>Copy</button>
+    <button disabled={text.length===0} className="btn btn-dark mx-2 my-1" onClick={removeSpace}>Remove Extra Spaces</button>
       </div>
       <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h3>Your Text Summary</h3>
